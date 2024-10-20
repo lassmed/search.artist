@@ -22,9 +22,9 @@ export class ArtistService {
 
 
     // function to rertieve artist data from the api by name
-    fetchArtist = async (name: string, maxResults: string = "30", currentPage: string = "1") => {
+    fetchArtist = async (artistName: string, limit: string = "20", page: string = "1") => {
         try {
-            const result = await this.artistRepository.findArtistByName(name, maxResults, currentPage);
+            const result = await this.artistRepository.findArtistByName(artistName, limit, page);
             return result;
         } catch (err: any) {
             throw new AppError("Error retrieving artist by name", 500);
@@ -70,7 +70,7 @@ export class ArtistService {
 
 
     // Function to download the result list in csv format file
-    exportArtistsDataToCsv= async(artistName: string, filename: string, limit: string = "30", page: string = "1")=> {
+    exportArtistsDataToCsv= async(artistName: string, filename: string, limit: string = "20", page: string = "1")=> {
         try {
             const artistInfo = await this.locateArtistOrFetchRandom(artistName, limit, page);
             const records = artistInfo.map((artist: any) => {

@@ -8,7 +8,7 @@ The application exposes three key APIs:
 1. **Search Artist**
 
     - **Endpoint:** `artist/search`
-    - **Description:** Retrieve information on specific artists by name. The request accepts parameters such as artist name, limit, and page number ( default values for limi and page are 20 and 1 ). If the Last.fm API does not return any results, fallback data from a JSON file ( fallbackArtists.json ) is provided.
+    - **Description:** Retrieve information on specific artists by name. The request accepts parameters such as artist name, limit, and page number ( default values for limit and page are 20 and 1 ). If the Last.fm API does not return any results, fallback data from a JSON file ( fallbackArtists.json ) is provided.
       here is an example of the api call with a valid artist name : 
       ![Search Endpoint Screenshot](assets/images/search_endpoint.png)
       example of when no data found for the specified name and a random artist name is generated : 
@@ -18,8 +18,10 @@ The application exposes three key APIs:
 3. **Download Artist CSV**
 
     - **Endpoint:** `/artist/Download`
-    - **Description:** Performs a similar search to the artist search API but downloads the results in a csv file , the request accepts same parameters as search with a new one filename which is the name of the csv file that will be downloaded ( default value = artist_search.csv )
+    - **Description:** Performs a similar search to the artist search API but downloads the results in a csv file , the request accepts same parameters as search with a new field : filename, which is the name of the csv file that will be downloaded ( default value = artist_search.csv )
       ![Download Endpoint Screenshot](assets/images/download_endpoint.png)
+      here is the downloaded csv file : 
+      ![Csv Example](assets/images/csv.png)
    
 
 ## Installation Steps
